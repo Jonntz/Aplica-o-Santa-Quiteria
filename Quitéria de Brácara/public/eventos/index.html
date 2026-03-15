@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Paroquiais - Santa Quitéria</title>
+
+    <link rel="stylesheet" href="/public/eventos/eventos.css">
+</head>
+
+<body>
+
+    <header>
+        <button class="btn-voltar" onclick="voltarInicio()">← Voltar</button>
+    </header>
+
+    <main>
+
+        <section id="secao-paroquial">
+            <h1 class="titulo">Eventos Paroquiais</h1>
+
+            <div class="slider-wrapper">
+                <button class="seta esq" onclick="scrollSlider('sliderParoquial', -1)">‹</button>
+
+                <div class="slider" id="sliderParoquial"></div>
+
+                <button class="seta dir" onclick="scrollSlider('sliderParoquial', 1)">›</button>
+            </div>
+        </section>
+
+        <section id="secao-eventos">
+            <h1 class="titulo">Eventos e Festas das Comunidades</h1>
+
+            <div class="slider-wrapper">
+                <button class="seta esq" onclick="scrollSlider('sliderEventos', -1)">‹</button>
+
+                <div class="slider" id="sliderEventos"></div>
+
+                <button class="seta dir" onclick="scrollSlider('sliderEventos', 1)">›</button>
+            </div>
+        </section>
+
+        <section id="materia">
+            <div class="materia-box">
+                <img id="materia-img" alt="Imagem da matéria">
+                <div class="texto">
+                    <h2 id="materia-titulo"></h2>
+                    <p id="materia-texto"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/public/js/mock-data.js"></script>
+    <script src="/public/js/eventos.js"></script>
+
+</body>
+</html>

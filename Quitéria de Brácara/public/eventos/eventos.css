@@ -1,0 +1,177 @@
+:root {
+    --vermelho-principal: #7b0f14;
+    --vermelho-escuro: #4a080b;
+    --dourado: #d4af37;
+    --fundo-card: rgba(0,0,0,0.75);
+    --texto-claro: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+        url("/public/img/logo/logo.png");
+    background-size: cover;
+    background-position: center;
+    color: var(--texto-claro);
+}
+
+/* ===== TOPO ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid var(--dourado);
+}
+
+header img {
+    height: 42px;
+}
+
+.btn-voltar {
+    background: linear-gradient(
+        135deg,
+        var(--vermelho-principal),
+        var(--vermelho-escuro)
+    );
+    border: 1px solid var(--dourado);
+    color: var(--texto-claro);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: var(--vermelho-escuro);
+    transform: scale(1.05);
+}
+
+/* ===== CONTAINER ===== */
+main {
+    padding: 16px;
+}
+
+/* ===== LISTA DE MATÉRIAS ===== */
+#lista {
+    display: block;
+}
+
+.titulo {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--dourado);
+    text-align: center;
+}
+
+/* SLIDER */
+.slider-wrapper {
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* CARD */
+.card {
+    min-width: 220px;
+    height: 220px;
+    background: var(--fundo-card);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 1px solid var(--vermelho-principal);
+}
+
+.card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.card .conteudo {
+    padding: 10px;
+}
+
+.card h3 {
+    font-size: 0.95rem;
+    color: var(--dourado);
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 0.75rem;
+    opacity: 0.85;
+}
+
+/* SETAS */
+.seta {
+    position: absolute;
+    top: 45%;
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: var(--dourado);
+    font-size: 1.4rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.seta.esq { left: -6px; }
+.seta.dir { right: -6px; }
+
+/* ===== MATÉRIA COMPLETA ===== */
+#materia {
+    display: none;
+}
+
+.materia-box {
+    background: var(--fundo-card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--vermelho-principal);
+}
+
+.materia-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.materia-box .texto {
+    padding: 16px;
+}
+
+.materia-box h2 {
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.materia-box p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}

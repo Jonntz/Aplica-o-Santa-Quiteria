@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Paróquia Santa Quitéria</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --vermelho: #7b0f14;
+    --dourado: #d4af37;
+    --branco: #ffffff;
+    --overlay: rgba(0, 0, 0, 0.55);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--branco);
+}
+
+/* FUNDO */
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(var(--overlay), var(--overlay)),
+        url("/public/img/logo/logo.png") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPO */
+header {
+    text-align: center;
+    padding: 25px 15px;
+    background: rgba(0,0,0,0.35);
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.3rem;
+    color: var(--dourado);
+    letter-spacing: 2px;
+}
+
+/* MENU */
+nav {
+    margin-top: 1
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 28px;
+    border: 2px solid var(--dourado);
+    color: var(--dourado);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: var(--dourado);
+    color: #000;
+}
+
+/* CONTEÚDO */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* BOTÕES */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(0,0,0,0.75);
+    border: 1px solid var(--dourado);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(0,0,0,0.9);
+}
+
+.card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.card img {
+    width: 100%;
+    max-width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: block;
+
+    border: 2px solid var(--dourado);
+    background: #000;
+}
+
+/* melhora o alinhamento geral do card */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* efeito sutil ao passar o mouse */
+.card:hover img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.card button {
+    margin-top: 18px;
+    padding: 10px 26px;
+
+    background: transparent;
+    color: var(--dourado);
+
+    border: 2px solid var(--dourado);
+    border-radius: 25px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* hover elegante */
+.card button:hover {
+    background: var(--dourado);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* clique */
+.card button:active {
+    transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <header>
+        <h1>Paróquia Santa Quitéria</h1>
+
+        <nav class="menu">
+            <a href="/public/index.html">Início</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cards">
+
+            <div class="card">
+                <img src="/public/img/comunidades/aparecida/aparecida.png" alt="Aparecida">
+                <h2>Nossa Senhora Aparecida</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/aparecida.html'">Ver Mais</button>
+            </div>
+
+            <div class="card">
+                <img src="/public/img/comunidades/fatima/fatima 2.0.jpeg" alt="Fatima">
+                <h2>Nossa Senhora de Fátima</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/fatima.html'">Ver Mais</button>
+            </div>
+
+            <div class="card">
+                <img src="/public/img/comunidades/lourdes/ns.lourdes.png.jpeg" alt="Lourdes">
+                <h2>Nossa Senhora de Lourdes</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/lourdes.html'">Ver Mais</button>
+            </div>
+
+            <div class="card">
+                <img src="/public/img/comunidades/santa-eulalia/eulalia.png" alt="Eulália">
+                <h2>Santa Eulália</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/santa-eulalia.html'">Ver Mais</button>
+            </div>
+
+            <div class="card">
+                <img src="/public/img/comunidades/santa-luzia/santa.luzia.png" alt="Luzia">
+                <h2>Santa Luzia</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/santa-luzia.html'">Ver Mais</button>
+            </div>
+
+            <div class="card">
+                <img src="/public/img/comunidades/santa-rita/santarita.png" alt="Rita">
+                <h2>Santa Rita</h2>
+                <p>Comunidade da Paróquia Santa Quitéria</p>
+                <button onclick="window.location.href='/public/comunidades/santa-rita.html'">Ver Mais</button>
+            </div>
+
+        </div>
+    </main>
+
+</section>
+
+</body>
+</html>

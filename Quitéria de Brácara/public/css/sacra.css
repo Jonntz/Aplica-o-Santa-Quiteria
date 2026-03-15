@@ -1,0 +1,134 @@
+:root {
+    --vermelho: #7b0f14;
+    --vermelho-escuro: #4a080b;
+    --dourado: #d4af37;
+    --branco: #ffffff;
+    --overlay: rgba(0, 0, 0, 0.65);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #000;
+    color: var(--branco);
+    line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(var(--overlay), var(--overlay)),
+        url("/public/img/logo/logo.png") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;       /* CENTRALIZA VERTICAL */
+    justify-content: center;   /* CENTRALIZA HORIZONTAL */
+    padding: 1rem;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* CARD */
+.card {
+    width: 100%;
+    max-width: 520px; /* largura ideal para celular */
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+}
+
+/* TITULO */
+.card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--dourado);
+    margin-bottom: 1rem;
+}
+
+/* TEXTO */
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.9rem;
+    text-align: left; /* leitura melhor no celular */
+}
+
+.card strong {
+    color: var(--dourado);
+}
+
+/* LISTA SIMULADA */
+.card p br {
+    line-height: 1.9;
+}
+
+/* BOTÃO */
+.botao {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.botao:active {
+    transform: scale(0.97);
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+    .card {
+        max-width: 720px;
+        padding: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+    .card {
+        max-width: 900px;
+    }
+
+    .card h2 {
+        font-size: 1.9rem;
+    }
+
+    .botao {
+        width: auto;
+        padding: 0.8rem 2.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .botao:hover {
+        transform: translateY(-2px);
+    }
+}

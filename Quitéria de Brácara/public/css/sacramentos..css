@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: url('/public/img/logo/logo.png') no-repeat center center/cover;
+    color: white;
+}
+
+/* Fundo escuro */
+.overlay {
+    background: rgba(0, 0, 0, 0.75);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Botão topo */
+.topo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-voltar {
+    padding: 8px 25px;
+    border: 2px solid #d4af37;
+    border-radius: 25px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #d4af37;
+    color: black;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #d4af37;
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+/* Container */
+.container-sacramentos {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 40px;
+}
+
+/* Card estilo da imagem */
+.card-sacramento {
+    border: 2px solid #d4af37;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+}
+
+.card-sacramento:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem redonda */
+.icone img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #d4af37;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* Título do card */
+.card-sacramento h2 {
+    color: #d4af37;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+/* Texto */
+.card-sacramento p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* Botão */
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid #d4af37;
+    border-radius: 30px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d4af37;
+    color: black;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    .container-sacramentos {
+        grid-template-columns: 1fr;
+    }
+
+    .card-sacramento {
+        padding: 25px;
+    }
+}
+
+

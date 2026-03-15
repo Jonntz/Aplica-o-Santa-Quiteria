@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Eventos - Administrativo</title>
+
+    <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <header>
+            <h1>Painel de Eventos | Administrativo</h1>
+            <p>Crie, visualize e gerencie seus eventos</p>
+        </header>
+
+        <section id="escrever-materia">
+            <h2>Escrever Evento</h2>
+
+            <form id="form-materia">
+                <label for="titulo">Título do Evento</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Digite o título"><br><br>
+
+                <label for="conteudo">Descrição</label>
+                <textarea id="conteudo" name="conteudo" rows="10" placeholder="Escreva a descrição do evento aqui"></textarea><br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="imagem-materia">
+            <h2>Imagem do Evento</h2>
+
+            <form id="form-imagem">
+                <input type="file" id="imagen" name="imagem" accept="image/*"><br><br>
+                <button type="submit">Enviar Imagem</button>
+            </form>
+
+            <div id="preview-imagem">
+                <p>Pré-visualização da imagem aparecerá aqui</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="lista-materias">
+            <h2>Lista de Eventos</h2>
+
+            <ul>
+                <li>
+                    <h3>Título do Evento 1</h3>
+                    <p>Resumo do evento...</p>
+                    <button>Visualizar</button>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </li>
+
+                <li>
+                    <h3>Título do Evento 2</h3>
+                    <p>Resumo do evento...</p>
+                    <button>Visualizar</button>
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer>
+            <p>© 2026 - Code Lock Engineering Awakening Render</p>
+        </footer>
+
+    </div>
+
+    <script src="/public/painel/painel.js"></script>
+
+</body>
+</html>

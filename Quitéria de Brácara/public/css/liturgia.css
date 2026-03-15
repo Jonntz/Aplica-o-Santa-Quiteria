@@ -1,0 +1,159 @@
+:root {
+    --vermelho-principal: #7b0f14;
+    --vermelho-escuro: #4a080b;
+    --dourado: #d4af37;
+    --fundo-card: rgba(0,0,0,0.75);
+    --texto-claro: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto-claro);
+    background: 
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+        url("/public/img/logo/logo.png") center/cover no-repeat fixed;
+    min-height: 100vh;;
+}
+
+.topo {
+    width: 100%;
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--vermelho-principal);
+}
+
+.logo-titulo img {
+    width: 48px;
+}
+
+.logo-titulo h1 {
+    font-family: 'Cinzel', sans-serif;
+    font-size:none;
+    color: var(--dourado);
+}
+
+.menu-toggle{
+    margin-left: auto;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#liturgia {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+#liturgia h2 {
+    text-align: center;
+    font-family: 'Cinzel', sans-serif;
+    color: var(--dourado);
+    margin-bottom: 24px;
+}
+
+.liturgia-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+
+.liturgia-info p,
+.campo-liturgia {
+    background: var(--fundo-card);
+    padding: 10px 14px;
+    border-left: 4px solid var(--dourado);
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.card,
+.caard {
+    background: var(--fundo-card);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid var(--vermelho-principal);
+}
+
+.card h2, 
+.card h3 {
+    font-family: 'Cinzel' serif;
+    color: var(--dourado);
+    margin-bottom: 10px;
+}
+
+.referencia {
+    font-weight: 600;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.texto {
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.salmo {
+    border-left-color: var(--dourado);
+}
+
+.refrao {
+    margin: 12px 0;
+    color: var(--dourado);
+}
+
+.evangelho {
+    border-left-color: var(--vermelho-escuro);
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background:  rgba(0,0,0,0.75);
+    font-size: 0.85rem;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: black;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .liturgia-info {
+        flex-direction: column;
+    }
+
+    .logo-titulo h1 {
+        font-size: 1rem;
+    }
+}
