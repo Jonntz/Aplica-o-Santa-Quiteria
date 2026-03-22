@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
+import { logger } from '../src/utils/logger';
 
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Iniciando seed do banco de dados...');
+  logger.info('🌱 Iniciando seed do banco de dados...');
 
   const adminEmail = 'admin@paroquia.com';
   const existingAdmin = await prisma.user.findUnique({
@@ -12,7 +13,6 @@ async function main() {
   });
 
   if (!existingAdmin) {
-    // Custo mínimo 12 exigido pelos requisitos de segurança
     const hashedPassword = await bcrypt.hash('Admin@123', 12);
 
     await prisma.user.create({
@@ -24,18 +24,18 @@ async function main() {
       },
     });
 
-    console.log(`✅ Usuário administrador criado com sucesso: ${adminEmail}`);
+    logger.info(`✅ Usuário administrador criado com sucesso: ${adminEmail}`);
   } else {
-    console.log('ℹ️ Usuário administrador já existe.');
+    logger.info('ℹ️ Usuário administrador já existe. Nenhuma ação necessária.');
   }
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Erro durante o seed:', e);
+    logger.error('❌ Erro crítico durante o seed:', e);
     process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();
-    console.log('✅ Seed finalizado.');
+    logger.info('✅ Seed finalizado com sucesso.');
   });

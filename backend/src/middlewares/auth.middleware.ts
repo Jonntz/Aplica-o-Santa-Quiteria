@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyAccessToken, TokenPayload } from '../utils/jwt';
+import { AppError } from '../utils/appError';
+import { logger } from '../utils/logger';
 
-// Estendendo o Request do Express para tipar o usuário
 declare global {
   namespace Express {
     interface Request {
@@ -14,7 +15,8 @@ export const authenticate = (req: Request, res: Response, next: NextFunction) =>
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ error: 'Token não fornecido ou inválido' });
+    logger.warn(`Tentativa de acesso sem token na rota: ${req.path}`);
+    return next(new AppError('Você precisa estar logado para acessar este recurso', 401));
   }
 
   const token = authHeader.split(' ')[1];
@@ -24,6 +26,7 @@ export const authenticate = (req: Request, res: Response, next: NextFunction) =>
     req.user = payload;
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'Token expirado ou inválido' });
+    logger.warn(`Tentativa de acesso com token inválido/expirado na rota: ${req.path}`);
+    return next(new AppError('Sua sessão expirou ou o token é inválido. Faça login novamente.', 401));
   }
 };

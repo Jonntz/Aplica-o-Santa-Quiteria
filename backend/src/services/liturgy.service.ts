@@ -1,42 +1,41 @@
 import axios from 'axios';
+import { logger } from '../utils/logger';
+import { AppError } from '../utils/appError';
 
-// Interface para o cache em memória
 interface CacheItem {
   data: any;
   timestamp: number;
 }
 
-// Map simples para atuar como cache no Node.js
 const liturgyCache = new Map<string, CacheItem>();
-const CACHE_TTL = 60 * 60 * 1000; // 1 hora de cache
+const CACHE_TTL = 60 * 60 * 1000;
 
 export class LiturgyService {
   async getLiturgyByDate(dia: string, mes: string, ano: string) {
     const cacheKey = `${dia}-${mes}-${ano}`;
     const cachedItem = liturgyCache.get(cacheKey);
 
-    // Retorna do cache se existir e não estiver expirado
     if (cachedItem && (Date.now() - cachedItem.timestamp < CACHE_TTL)) {
-      console.log(`[Cache Hit] Liturgia para ${cacheKey}`);
+      logger.info(`[Cache Hit] Liturgia servida do cache para a data: ${cacheKey}`);
       return cachedItem.data;
     }
 
-    console.log(`[Cache Miss] Buscando Liturgia para ${cacheKey} na API externa...`);
+    logger.info(`[Cache Miss] Buscando Liturgia na API externa para a data: ${cacheKey}`);
     const url = `https://liturgia.up.railway.app/v2/?dia=${dia}&mes=${mes}&ano=${ano}`;
     
     try {
       const response = await axios.get(url);
       
-      // Salva no cache
       liturgyCache.set(cacheKey, {
         data: response.data,
         timestamp: Date.now(),
       });
 
+      logger.info(`[Liturgy API] Dados da liturgia cacheados com sucesso para: ${cacheKey}`);
       return response.data;
     } catch (error: any) {
-      console.error(`Erro ao buscar liturgia na API externa: ${error.message}`);
-      throw new Error('Não foi possível buscar a liturgia no momento.');
+      logger.error(`Erro ao buscar liturgia na API externa: ${error.message}`);
+      throw new AppError('Não foi possível buscar a liturgia no momento. O serviço externo pode estar indisponível.', 503);
     }
   }
 }
