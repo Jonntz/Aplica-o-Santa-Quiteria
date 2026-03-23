@@ -1,4 +1,10 @@
-import { CalendarDays, LayoutDashboard, LogOut, Menu } from "lucide-react";
+import {
+  CalendarDays,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  Users,
+} from "lucide-react";
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
@@ -11,6 +17,10 @@ export const AdminLayout = () => {
   const menuItems = [
     { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
     { name: "Eventos e Avisos", path: "/eventos", icon: CalendarDays },
+    // Adicionamos a rota de usuários condicionalmente
+    ...(user?.role === "ADMIN"
+      ? [{ name: "Usuários", path: "/usuarios", icon: Users }]
+      : []),
   ];
 
   return (

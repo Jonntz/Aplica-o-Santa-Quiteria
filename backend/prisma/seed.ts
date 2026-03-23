@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 async function main() {
   logger.info('🌱 Iniciando seed do banco de dados...');
 
-  const adminEmail = 'admin@paroquia.com';
+  const adminEmail = 'padre@quiteria.com';
   const existingAdmin = await prisma.user.findUnique({
     where: { email: adminEmail },
   });
@@ -20,7 +20,7 @@ async function main() {
         email: adminEmail,
         name: 'Administrador Principal',
         passwordHash: hashedPassword,
-        role: 'SUPER_ADMIN',
+        role: 'ADMIN'
       },
     });
 
