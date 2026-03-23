@@ -1,68 +1,40 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;600&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  body {
+    @apply font-montserrat text-paroquia-light antialiased;
+    /* Adapte o caminho da imagem de fundo se necessário. Por enquanto, assumindo que estará em /public */
+    background: url('/img/logo/logo.png') center/cover fixed no-repeat;
   }
-  a:hover {
-    color: #747bff;
+
+  /* Overlay escuro que fica sobre a imagem de fundo */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85); 
+    z-index: -1;
   }
-  button {
-    background-color: #f9f9f9;
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel text-paroquia-gold;
+  }
+}
+
+@layer components {
+  /* Recriando os estilos dos botões e cards originais para uso no Tailwind */
+  .card {
+    @apply bg-paroquia-card p-6 rounded-2xl my-4 shadow-[0_0_15px_rgba(0,0,0,0.6)];
+  }
+
+  .btn-gold {
+    @apply inline-block px-6 py-3 rounded-full bg-paroquia-gold text-black font-bold no-underline transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_#d4af37];
   }
 }
