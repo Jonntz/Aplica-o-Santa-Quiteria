@@ -2,13 +2,11 @@
   "name": "santa-quiteria-backend",
   "version": "1.0.0",
   "description": "API REST para a paróquia Santa Quitéria de Brácara",
-  "main": "dist/server.js",
+  "main": "dist/server.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
+    "start": "node dist/server.js", 
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
