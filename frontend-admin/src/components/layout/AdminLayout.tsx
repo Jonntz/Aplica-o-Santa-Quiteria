@@ -18,27 +18,22 @@ export const AdminLayout = () => {
       {/* Sidebar Mobile Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-20 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-20 lg:hidden backdrop-blur-sm"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar - Agora com o gradiente vermelho */}
       <aside
         className={`
-        fixed lg:static inset-y-0 left-0 z-30 w-64 bg-white shadow-xl transform transition-transform duration-300
+        fixed lg:static inset-y-0 left-0 z-30 w-64 bg-gradient-to-b from-paroquia-primary to-paroquia-dark shadow-2xl transform transition-transform duration-300
         ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
       `}
       >
-        <div className="h-16 flex items-center justify-center border-b border-gray-200">
-          <div className="flex justify-center items-center gap-2 relative p-4 mt-2 mb-2">
-            <img
-              src="/logo/logo.png"
-              alt="Logo Paróquia"
-              className="w-14 h-14 rounded-full border-2 border-paroquia-gold object-cover"
-            />
-            <h1 className="text-xl">Paróquia Santa Quitéria</h1>
-          </div>
+        <div className="h-16 flex items-center justify-center border-b border-white/10">
+          <h1 className="text-xl font-bold text-paroquia-gold font-cinzel">
+            Santa Quitéria
+          </h1>
         </div>
 
         <nav className="p-4 space-y-2">
@@ -50,14 +45,14 @@ export const AdminLayout = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsSidebarOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors font-medium ${
                   isActive
-                    ? "bg-paroquia-primary text-white"
-                    : "text-gray-600 hover:bg-paroquia-light hover:text-paroquia-primary"
+                    ? "bg-paroquia-gold text-paroquia-dark font-bold shadow-md"
+                    : "text-paroquia-light hover:bg-white/10 hover:text-paroquia-gold"
                 }`}
               >
                 <Icon size={20} />
-                <span className="font-medium">{item.name}</span>
+                <span>{item.name}</span>
               </Link>
             );
           })}
@@ -67,22 +62,28 @@ export const AdminLayout = () => {
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Top Header */}
-        <header className="h-16 bg-white shadow-sm flex items-center justify-between px-4 lg:px-8 z-10">
+        <header className="h-16 bg-paroquia-primary shadow-sm flex items-center justify-between px-4 lg:px-8 z-10 border-b border-gray-200">
           <button
             className="p-2 rounded-md lg:hidden text-gray-600 hover:bg-gray-100"
             onClick={() => setIsSidebarOpen(true)}
           >
             <Menu size={24} />
           </button>
-          <div className="flex-1" /> {/* Spacer */}
+
+          <div className="flex-1" />
+
           <div className="flex items-center gap-4">
             <div className="text-sm text-right hidden sm:block">
-              <p className="font-semibold text-gray-800">{user?.name}</p>
-              <p className="text-gray-500 text-xs">{user?.email}</p>
+              <p className="font-semibold text-paroquia-gold font-cinzel">
+                {user?.name}
+              </p>
+              <p className="text-paroquia-gold text-xs font-montserrat">
+                {user?.email}
+              </p>
             </div>
             <button
               onClick={logout}
-              className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors"
+              className="p-2 text-paroquia-gold hover:text-red-600 hover:bg-red-50 rounded-full transition-colors"
               title="Sair"
             >
               <LogOut size={20} />
@@ -91,7 +92,7 @@ export const AdminLayout = () => {
         </header>
 
         {/* Page Content */}
-        <div className="flex-1 overflow-auto p-4 lg:p-8">
+        <div className="flex-1 overflow-auto p-4 lg:p-8 bg-gray-50">
           <Outlet />
         </div>
       </main>

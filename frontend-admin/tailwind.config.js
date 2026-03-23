@@ -7,13 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Cores baseadas no layout original do site Santa Quitéria
         paroquia: {
-          primary: '#6b21a8', // Exemplo de um roxo litúrgico, vamos ajustar conforme o CSS original
-          secondary: '#d8b4fe',
-          dark: '#1f2937',
-          light: '#f3f4f6'
+          primary: '#7b0f14', // Vermelho principal
+          dark: '#4a080b',    // Vermelho escuro
+          gold: '#d4af37',    // Dourado
+          light: '#f5f5f5',   // Texto claro
+          card: 'rgba(0,0,0,0.75)',
         }
+      },
+      fontFamily: {
+        cinzel: ['Cinzel', 'serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       }
     },
   },

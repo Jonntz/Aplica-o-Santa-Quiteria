@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos globais do admin para padronização */
-body {
-  @apply bg-gray-50 text-gray-900 antialiased;
+@layer base {
+  body {
+    @apply font-montserrat bg-gray-50 text-gray-900 antialiased;
+  }
+
+  /* Aplica a fonte Cinzel automaticamente em todos os títulos do admin */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel;
+  }
 }
