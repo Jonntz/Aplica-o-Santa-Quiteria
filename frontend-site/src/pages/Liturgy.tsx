@@ -102,7 +102,7 @@ export const Liturgy = () => {
           </div>
 
           {/* Primeira Leitura */}
-          {liturgy.primeiraLeitura && (
+          {liturgy.leituras.primeiraLeitura && (
             <div className="card">
               <div className="flex items-center gap-3 mb-4">
                 <BookOpen className="text-paroquia-gold" />
@@ -111,58 +111,59 @@ export const Liturgy = () => {
                 </h4>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                {liturgy.primeiraLeitura.referencia}
+                {liturgy.leituras.primeiraLeitura[0].referencia}
               </p>
               <p className="text-lg text-white mb-4 font-semibold">
-                {liturgy.primeiraLeitura.titulo}
+                {liturgy.leituras.primeiraLeitura.titulo}
               </p>
               <div className="text-gray-300 leading-relaxed text-justify whitespace-pre-line">
-                {liturgy.primeiraLeitura.texto}
+                {liturgy.leituras.primeiraLeitura[0].texto}
               </div>
             </div>
           )}
 
           {/* Salmo Responsorial */}
-          {liturgy.salmo && (
+          {liturgy.leituras.salmo && (
             <div className="card bg-black/40 border border-white/5">
               <h4 className="text-xl font-cinzel text-paroquia-gold mb-2">
                 Salmo Responsorial
               </h4>
               <p className="text-sm text-gray-400 mb-4">
-                {liturgy.salmo.referencia}
+                {liturgy.leituras.salmo[0].referencia}
               </p>
               <p className="text-lg text-white mb-4 italic text-center font-semibold bg-white/5 p-4 rounded-lg">
-                — {liturgy.salmo.refrao}
+                — {liturgy.leituras.salmo[0].refrao}
               </p>
               <div className="text-gray-300 leading-relaxed text-center whitespace-pre-line">
-                {liturgy.salmo.texto}
+                {liturgy.leituras.salmo[0].texto}
               </div>
             </div>
           )}
 
           {/* Segunda Leitura (Nem todos os dias têm) */}
-          {liturgy.segundaLeitura && liturgy.segundaLeitura.texto && (
-            <div className="card">
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="text-paroquia-gold" />
-                <h4 className="text-xl font-cinzel text-paroquia-gold">
-                  Segunda Leitura
-                </h4>
+          {liturgy.leituras.segundaLeitura &&
+            liturgy.leituras.segundaLeitura.texto && (
+              <div className="card">
+                <div className="flex items-center gap-3 mb-4">
+                  <BookOpen className="text-paroquia-gold" />
+                  <h4 className="text-xl font-cinzel text-paroquia-gold">
+                    Segunda Leitura
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-400 mb-4">
+                  {liturgy.leituras.segundaLeitura[0].referencia}
+                </p>
+                <p className="text-lg text-white mb-4 font-semibold">
+                  {liturgy.leituras.segundaLeitura[0].titulo}
+                </p>
+                <div className="text-gray-300 leading-relaxed text-justify whitespace-pre-line">
+                  {liturgy.leituras.segundaLeitura[0].texto}
+                </div>
               </div>
-              <p className="text-sm text-gray-400 mb-4">
-                {liturgy.segundaLeitura.referencia}
-              </p>
-              <p className="text-lg text-white mb-4 font-semibold">
-                {liturgy.segundaLeitura.titulo}
-              </p>
-              <div className="text-gray-300 leading-relaxed text-justify whitespace-pre-line">
-                {liturgy.segundaLeitura.texto}
-              </div>
-            </div>
-          )}
+            )}
 
           {/* Evangelho */}
-          {liturgy.evangelho && (
+          {liturgy.leituras.evangelho && (
             <div className="card border border-paroquia-gold/30">
               <div className="flex items-center gap-3 mb-4">
                 <BookOpen className="text-paroquia-gold" />
@@ -171,13 +172,13 @@ export const Liturgy = () => {
                 </h4>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                {liturgy.evangelho.referencia}
+                {liturgy.leituras.evangelho[0].referencia}
               </p>
               <p className="text-lg text-white mb-4 font-semibold">
-                {liturgy.evangelho.titulo}
+                {liturgy.leituras.evangelho[0].titulo}
               </p>
               <div className="text-gray-300 leading-relaxed text-justify whitespace-pre-line">
-                {liturgy.evangelho.texto}
+                {liturgy.leituras.evangelho[0].texto}
               </div>
             </div>
           )}

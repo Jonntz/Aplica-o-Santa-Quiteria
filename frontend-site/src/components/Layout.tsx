@@ -48,11 +48,11 @@ export const Layout = () => {
           <a href="/#horarios" onClick={closeMenu} className="nav-link">
             Missas
           </a>
-          <a href="/#doacao" onClick={closeMenu} className="nav-link">
-            Doação
-          </a>
           <a href="/#calendario" onClick={closeMenu} className="nav-link">
             Calendário
+          </a>
+          <a href="/#doacao" onClick={closeMenu} className="nav-link">
+            Doação
           </a>
           <Link to="/liturgia" onClick={closeMenu} className="nav-link">
             Liturgia Diária
