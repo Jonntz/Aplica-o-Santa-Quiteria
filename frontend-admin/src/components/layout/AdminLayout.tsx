@@ -31,9 +31,14 @@ export const AdminLayout = () => {
       `}
       >
         <div className="h-16 flex items-center justify-center border-b border-gray-200">
-          <h1 className="text-xl font-bold text-paroquia-primary">
-            Santa Quitéria
-          </h1>
+          <div className="flex justify-center items-center gap-2 relative p-4 mt-2 mb-2">
+            <img
+              src="/logo/logo.png"
+              alt="Logo Paróquia"
+              className="w-14 h-14 rounded-full border-2 border-paroquia-gold object-cover"
+            />
+            <h1 className="text-xl">Paróquia Santa Quitéria</h1>
+          </div>
         </div>
 
         <nav className="p-4 space-y-2">
