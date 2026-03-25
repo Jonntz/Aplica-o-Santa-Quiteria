@@ -57,14 +57,13 @@ services:
 
   # 5. Load Balancer (Nginx Reverso)
   proxy:
-    image: nginx:alpine
+    build:
+      context: ./proxy
     container_name: paroquia_proxy
     restart: unless-stopped
     ports:
-      - "80:80"     # Porta padrão web (Site Público)
-      - "8081:8081" # Porta do Admin
-    volumes:
-      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - "80:80"     
+      - "8081:8081" 
     depends_on:
       - backend
       - frontend-site
