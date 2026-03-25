@@ -42,7 +42,7 @@ export const AdminLayout = () => {
       >
         <div className="h-16 flex items-center justify-center border-b border-white/10">
           <h1 className="text-xl font-bold text-paroquia-gold font-cinzel">
-            Santa Quitéria 2
+            Santa Quitéria
           </h1>
         </div>
 
